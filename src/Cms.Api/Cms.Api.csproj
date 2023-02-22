@@ -289,7 +289,12 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AttachmentsController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KnowledgeBasesController.cs" />
+    <Compile Include="Controllers\LabelsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Data\ActivityLog.cs" />
     <Compile Include="Data\AspNetRole.cs" />
