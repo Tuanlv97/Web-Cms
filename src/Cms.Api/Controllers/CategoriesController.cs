@@ -1,6 +1,7 @@
 ﻿using Cms.Api.Data;
 using Cms.Api.Models;
 using Cms.ViewModels;
+using Serilog;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -20,10 +21,11 @@ namespace Cms.Api.Controllers
         [ResponseType(typeof(List<CategoryVm>))]
         public async Task<IHttpActionResult> GetCategories()
         {
+            Log.Information("Start log category");
             var categorys = await _context.Categories.ToListAsync();
 
             var categoryvms = categorys.Select(c => CreateCategoryVm(c)).ToList();
-
+            Log.Information("End log category");
             return Ok(categoryvms);
         }
 
