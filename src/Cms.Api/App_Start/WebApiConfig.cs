@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Serilog;
+using System;
+using System.Web.Hosting;
 using System.Web.Http;
 
 namespace Cms.Api
@@ -19,6 +19,24 @@ namespace Cms.Api
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            string filePath = HostingEnvironment.ApplicationPhysicalPath + "Logs/logs.txt";
+
+            Log.Logger = new LoggerConfiguration()
+                 .MinimumLevel.Debug()
+                 .Enrich.FromLogContext()
+                 .WriteTo.File(filePath)
+                 .CreateLogger();
+
+            try
+            {
+                Log.Information("Starting Host.");
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, "Host terminated unexpectedly!");
+            }
+
         }
     }
 }

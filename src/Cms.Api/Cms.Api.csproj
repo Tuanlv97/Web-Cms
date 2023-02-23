@@ -347,7 +347,6 @@
     <Compile Include="Models\VoteCreateRequest.cs" />
     <Compile Include="Models\VoteVm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SerilogClass.cs" />
     <Compile Include="Services\Interfaces\ISequenceService.cs" />
     <Compile Include="Services\SequenceService.cs" />
   </ItemGroup>
