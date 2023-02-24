@@ -1,5 +1,8 @@
-﻿namespace Cms.Api.Models
+﻿using FluentValidation.Attributes;
+
+namespace Cms.Api.Models
 {
+    [Validator(typeof(CategoryCreateRequestValidator))]
     public class CategoryCreateRequest
     {
         public string Name { get; set; }

@@ -5,6 +5,8 @@ using Serilog;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net.Http;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -81,6 +83,9 @@ namespace Cms.Api.Controllers
                 ParentId = request.ParentId,
                 SortOrder = request.SortOrder
             };
+            if (!ModelState.IsValid)
+            // re-render the view when validation failed.
+                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState));
 
             _context.Categories.Add(category);
             var result = await _context.SaveChangesAsync();

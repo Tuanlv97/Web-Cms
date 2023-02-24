@@ -1,4 +1,6 @@
-﻿using Serilog;
+﻿
+using FluentValidation.WebApi;
+using Serilog;
 using System;
 using System.Web.Hosting;
 using System.Web.Http;
@@ -11,6 +13,9 @@ namespace Cms.Api
         {
             // Web API configuration and services
 
+            //Fluent Validation
+            FluentValidationModelValidatorProvider.Configure(GlobalConfiguration.Configuration );
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 
@@ -19,6 +24,7 @@ namespace Cms.Api
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
 
             string filePath = HostingEnvironment.ApplicationPhysicalPath + "Logs/logs.txt";
 
@@ -38,5 +44,6 @@ namespace Cms.Api
             }
 
         }
+
     }
 }

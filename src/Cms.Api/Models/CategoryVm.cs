@@ -1,4 +1,6 @@
-﻿namespace Cms.Api.Models
+﻿using FluentValidation.Attributes;
+
+namespace Cms.Api.Models
 {
     public class CategoryVm
     {
